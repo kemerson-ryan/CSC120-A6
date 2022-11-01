@@ -1,6 +1,10 @@
-
+/**
+ * Cafe class extends Building class
+ */
 public class Cafe extends Building {
-    //defining variables to avoid constants being buried
+    /**
+     * Allocating space for variables used throughout Cafe class
+     */
     private int nCoffeeOunces;
     private int restockCoffeeOunces;
     private int lowThresholdCoffeeOunces;
@@ -17,7 +21,16 @@ public class Cafe extends Building {
     private int restockCups;
     private int lowThresholdCups;
 
-    //constructor for instances of cafes
+    /**
+     * Constructor of Cafe instances
+     * @param name of cafe
+     * @param address of cafe
+     * @param number of floors in cafe
+     * @param number of Coffee Ounces initially stocked at the cafe
+     * @param number of Sugar Packets initially stocked at the cafe
+     * @param number of Creams initially stocked at the cafe
+     * @param number of Cups initially stocked at the cafe
+     */
     public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         super(name, address, nFloors);
 
@@ -40,35 +53,73 @@ public class Cafe extends Building {
         System.out.println("You have built a cafe: ☕");
     }
 
-    //getters for the inventory of an instance of a cafe
+    /**
+     * Getter of number of Coffee Ounces in stock
+     * @return number of coffee ounces in stock
+     */
     public int getnCoffeeOunces(){
         return this.nCoffeeOunces;
     }
+    /**
+     * Getter of number of Sugar packets in stock
+     * @return number of sugar packets in stock
+     */
     public int getnSugarPackets(){
         return this.nSugarPackets;
     }
+    /**
+     * Getter of number of Creams in stock
+     * @return number of creams in stock
+     */
     public int getnCreams(){
         return this.nCreams;
     }
+    /**
+     * Getter of number of Cups in stock
+     * @return number of cups in stock
+     */
     public int getnCups(){
         return this.nCups;
     }
     
-    //setters for the inventory of an instance of a cafe
+    /**
+     * Setting number of Coffee Ounces left in stock after a purchase
+     * @param amount of coffee ounces purchased in transaction
+     * @return number of coffee ounces left in stock after purchase
+     */
     public int setnCoffeeOunces(int amtCoffeeOunces){ 
         return this.nCoffeeOunces = this.nCoffeeOunces - amtCoffeeOunces;
     }
+    /**
+     * Setting number of Sugar Packets left in stock after a purchase
+     * @param amount of sugar purchased in transaction
+     * @return number of sugar left in stock after purchase
+     */
     public int setnSugarPackets(int amtSugarPackets){ 
         return this.nSugarPackets = this.nSugarPackets - amtSugarPackets;
     }
+    /**
+     * Setting number of Creams left in stock after a purchase
+     * @param amount of creams purchased in transaction
+     * @return number of cream left in stock after purchase
+     */
     public int setnCreams(int amtCreams){ 
         return this.nCreams = this.nCreams - amtCreams;
     }
+    /**
+     * Decreases number of cups by 1 after each coffee sold
+     * @return number of cups left in stock
+     */
     public int setnCups(){
         return this.nCups = this.nCups - 1;
     }
 
-    //sellCoffee method
+    /**
+     * Use setters to remove supplies from inventory with each purchase, and calls restock method after sale
+     * @param amount Coffee purchased
+     * @param amount Sugar purchased
+     * @param amount Cream purchased
+     */
     public void sellCoffee(int amtCoffeeOunces, int amtSugarPackets, int amtCreams){ //renamed for sell to be different from original inventory names
         setnCoffeeOunces(amtCoffeeOunces);
         setnSugarPackets(amtSugarPackets);
@@ -79,7 +130,9 @@ public class Cafe extends Building {
         restock();
     }
 
-    //restock method
+    /**
+     * Private method to restock supplies when inventory in instance of cafe low
+     */
     private void restock(){
         while (getnCoffeeOunces()<this.lowThresholdCoffeeOunces){  
             System.out.println("The coffee supply was down to " + this.nCoffeeOunces + " ounces, so we've restocked.");
@@ -103,7 +156,9 @@ public class Cafe extends Building {
         }
     }
 
-    //print inventory method
+    /**
+     * Prints inventory of supplies in cafe instance
+     */
     public void getInventory(){
         System.out.println(getName() + " Inventory:");
         System.out.println(getnCoffeeOunces() + " ounces of coffee");
@@ -113,7 +168,10 @@ public class Cafe extends Building {
         System.out.println();
     }
     
-    //main method for testing
+    /**
+     * Main method for testing
+     * @param args
+     */
     public static void main(String[] args) {
         Cafe compassCafe = new Cafe("Compass Cafe", "7 Neilson Drive", 1, 35, 120, 120, 75);
         Cafe starbucks = new Cafe("Starbucks Coffee", "100 Industrial Road", 3, 600,200,200,3);
