@@ -2,6 +2,9 @@ import java.util.Hashtable;
 
 /**
  * Library class extends Building class
+ * no outside sources used
+ * @author Ryan (K) Emerson
+ * @version October 31, 2022
  */
 public class Library extends Building {
 

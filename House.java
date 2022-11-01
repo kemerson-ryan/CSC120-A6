@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 /**
  * House class extends from Building class
+ * no outside sources used
+ * @author Ryan (K) Emerson
+ * @version October 31, 2022
  */
 public class House extends Building {
 
